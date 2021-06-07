@@ -23,9 +23,9 @@ class CheckoutController extends Controller
         $hiddenfields=$request->all();
         $priceaddtable=Priceadd::where('vanname','=',str_replace(' ','',$request->vanname))->get();
         $addtionalprice=AdditionalPrice::get()->first();
-     
+      //  dd($addtionalprice);
         //dd($priceaddtable);
-        //dd($hiddenfields);
+       // dd($hiddenfields);
         return view('frontend.checkouts',['hiddenfielsdata'=>$hiddenfields,'valpricetable'=>$priceaddtable,"additionalprice"=>$addtionalprice]);
     }
    public function Success(){

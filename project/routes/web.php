@@ -34,6 +34,7 @@ Route::get('/about',[HomeController::class,'About']);
 Route::get('/api/{location}',[ApiConfigurationController::class,'ConfigApi']);
 Route::post('/api',[ApiConfigurationController::class,'ConfigApi'])->name('fetch');
 Route::get('/book',[MapIntigrationController::class,'Booking']);
+Route::get('/booking',[MapIntigrationController::class,"Book"]);
 Route::post('/book',[MapIntigrationController::class,'Booking'])->name('map');
 Route::get('/choose-van-size',[ChooseVanController::class,'ChooseVan']);
 Route::post('/choose-van-size',[ChooseVanController::class,'ChooseVan']);

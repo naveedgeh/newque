@@ -18,6 +18,10 @@
 // onload=function(){
 //     location.reload();
 //     }
+
+
+// Show it in a nice table in the developer console
+
 </script>
 @stack('javascript')
 @endsection

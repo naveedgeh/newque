@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Http;
 
 class MapIntigrationController extends Controller
 {
+    public function Book(){
+        return view('frontend.booking');
+    }
     public function Booking(Request $request){
             $valiation=$request->validate([
                         'pickup'=>'required',
@@ -42,6 +45,6 @@ class MapIntigrationController extends Controller
             $dist=round((int)$dis*0.62137,2);
             //dd($dist);
             //'addi2'=>$addi2,'addi3'=>$addi3,'addi4'=>$addi4,
-        return view('frontend.book',['pickup'=>$pickup,'dropoff'=>$dropoff,'addi1'=>$addi1,'distance'=>$dist]);
+        return view('frontend.booking   ',['pickup'=>$pickup,'dropoff'=>$dropoff,'addi1'=>$addi1,'distance'=>$dist]);
     }
 }

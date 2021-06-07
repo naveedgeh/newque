@@ -1,5 +1,5 @@
 <h3>Stairs At Pickup Address</h3>
-<p>{{$hiddenfielsdata["pickup"]}}</p>
+<p>{{$hiddenfielsdata["pickup"]??""}}</p>
 <div class="_drff2ed">
     {{-- <select name="pikuppart" class="_slectqwe">
         <option value="Ground Floor">Ground Floor</option>

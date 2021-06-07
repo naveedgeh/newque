@@ -134,9 +134,13 @@
                 <input type="hidden" id="bmiles58" name="miles" value="{{$hiddenfielsdata["miles"] ?? ''}}">
                 <input type="hidden" id="extrahelp59" name="extrahelp" value="{{$hiddenfielsdata["extrahelp"] ?? ''}}">
                 <input type="hidden" id="vanname" name="vanname" value="{{$hiddenfielsdata["vanname"] ?? ''}}">
-                <input type="hidden" id="addiprice" name="addiprice" value="{{$hiddenfielsdata["additionalprice"]}}"/>
+                @if($hiddenfielsdata["additionalprice"]!=null){
+                  <input type="hidden" id="addiprice" name="addiprice" value="{{$hiddenfielsdata["additionalprice"] }}"/>
+                }
+                @endif
+               
                 <!-- {{-- <button type="submit">Confirm </button> --}} -->
-             
+                {{-- {{dd($hiddenfielsdata["additionalprice"])}} --}}
                 <div id="amount">
                 <script
                 src="https://checkout.stripe.com/checkout.js"  class="stripe-button"
@@ -167,7 +171,7 @@
 @section('jquery')
     <script>
          
-        
+        window.onpopstate = function() {window.location.replace("http://mobileandtechnology.com/queremovalss/");}; history.pushState({}, '');
            
 
       $("#_filedaddbutton").click(function(){

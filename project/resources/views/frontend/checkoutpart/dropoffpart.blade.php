@@ -1,5 +1,5 @@
 <h3>Stairs At Dropoff Address</h3>
-<p>{{$hiddenfielsdata["dropoff"]}}</p>
+<p>{{$hiddenfielsdata["dropoff"]??""}}</p>
 <div class="_drff2ed">
     {{-- <select name="dropoffpart" class="_slectqwe">
         <option value="Ground Floor">Ground Floor</option>
