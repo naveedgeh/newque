@@ -175,12 +175,7 @@
 													
 													 
 												</div>
-													  <span class="error"> 
-														  @error('dropoff')
-															  {{$message}}
-														  @enderror
-										  			  </span>
-											
+													 
 												
 										
 												  {{-- end additional address --}}
