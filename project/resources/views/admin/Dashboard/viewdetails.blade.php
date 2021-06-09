@@ -92,7 +92,7 @@
                     <input type="hidden" name="pid" id="pid"/>
                     @includeIf('admin.Dashboard.Formpart.van')
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label"></label>
+                      <label for="exampleInputEmail1" class="form-label">Enter van Price</label>
                       <input type="text" name="vanprice" class="form-control" placeholder="Enter van Price" id="vanprice" aria-describedby="vanprice">
                       <div id="emailHelp" class="form-text">
                         @error('vanprice')
@@ -101,39 +101,48 @@
                       </div>
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label"></label>
+                      <label for="exampleInputEmail1" class="form-label">Enter Self Load Price</label>
+                      <input type="text" name="selfprice" class="form-control" placeholder="Enter Self Load Price" id="selfprice" aria-describedby="selfprice">
+                      <div id="emailHelp" class="form-text">
+                        @error('vanprice')
+                            {{$message}}
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Driver Help Price</label>
                       <input type="text" name="driverhelpprice" class="form-control" placeholder="Driver Help Price" id="driverhelpprice">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label"></label>
+                        <label for="exampleInputPassword1" class="form-label">2 MEN TEAM Price</label>
                         <input type="text" name="twomanprice" class="form-control" placeholder="2 MEN TEAM Price" id="twomanprice">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label"></label>
+                        <label for="exampleInputPassword1" class="form-label">3 MEN TEAM Price</label>
                         <input type="text" name="threemanprice" class="form-control" placeholder="3 MEN TEAM Price" id="threemanprice">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label"></label>
+                        <label for="exampleInputPassword1" class="form-label">Driver Help helf hour Price</label>
                         <input type="text" name="driverhelphalfhourprice" class="form-control" placeholder="Driver Help helf hour Price" id="driverhelphalfhourprice">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label"></label>
+                        <label for="exampleInputPassword1" class="form-label">2 MEN TEAM HALF HOUR Price</label>
                         <input type="text" name="twomanhalfhourprice" class="form-control" placeholder="2 MEN TEAM HALF HOUR Price" id="twomanhalfhourprice">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label"></label>
+                        <label for="exampleInputPassword1" class="form-label">3 MEN TEAM HALF HOUR Price</label>
                         <input type="text" name="threemanhalfhourprice" class="form-control" placeholder="3 MEN TEAM HALF HOUR Price" id="threemanhalfhourprice">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label"></label>
+                        <label for="exampleInputPassword1" class="form-label">Floor Price Without Lift</label>
                         <input type="text" name="floorpricewithoutleft" class="form-control" placeholder="Floor Price Without Lift" id="floorpricewithoutleft">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label"></label>
+                        <label for="exampleInputPassword1" class="form-label">Floor Price With Lift</label>
                         <input type="text" name="floorpricewithleft" class="form-control" placeholder="Floor Price With Lift" id="floorpricewithleft">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label"></label>
+                        <label for="exampleInputPassword1" class="form-label">8 PM To 8 AM Price</label>
                         <input type="text" name="speiciealtime" class="form-control" placeholder=" 8 PM To 8 AM Price" id="speiciealtime">
                       </div>
                      
@@ -168,6 +177,7 @@
        console.log(responce);
        $("#pid").val(responce["id"]);
         $("#vanprice").val(responce["vanprice"]);
+        $('#selfprice').val(responce['selfload']);
         $("#driverhelpprice").val(responce["driverhelp"]);
         $("#twomanprice").val(responce["twomenprice"]);
         $("#threemanprice").val(responce["threemenprice"]);

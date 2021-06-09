@@ -32,6 +32,7 @@ class ViewDetails extends Controller
                         ->update([
                             // "vanname"=>$request->input('vans'),
                             "vanprice"=>$request->input('vanprice'),
+                            "selfload"=>$request->input('selfprice'),
                             "driverhelp"=>$request->input('driverhelpprice'),
                             "twomenprice"=>$request->input('twomanprice'),
                             "threemenprice"=>$request->input('threemanprice'),

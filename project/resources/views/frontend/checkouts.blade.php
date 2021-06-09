@@ -134,7 +134,9 @@
                 <input type="hidden" id="bmiles58" name="miles" value="{{$hiddenfielsdata["miles"] ?? ''}}">
                 <input type="hidden" id="extrahelp59" name="extrahelp" value="{{$hiddenfielsdata["extrahelp"] ?? ''}}">
                 <input type="hidden" id="vanname" name="vanname" value="{{$hiddenfielsdata["vanname"] ?? ''}}">
+                
                 @if($hiddenfielsdata["additionalprice"]!=null){
+                    {{dd($hiddenfielsdata)}}
                   <input type="hidden" id="addiprice" name="addiprice" value="{{$hiddenfielsdata["additionalprice"] }}"/>
                 }
                 @endif
@@ -215,8 +217,9 @@
         //   var extrahelpes={{$hiddenfielsdata["extrahelp"] ?? ''}};
           var pri={{$hiddenfielsdata["price"]?? 0}};
            let on=$("#addiprice").val();
-           if(on!=""){
+           if(on!=null){
                 price=pri+Number({{$additionalprice->additionalprice ?? 0}});
+                
            }
            else{
                price=pri;
@@ -241,6 +244,7 @@
                 }
                 if(extrahelps=='Driver help. I will help the driver with heavy item(s)'){
                     price+={{$valpricetable[0]['driverhelphalfhourprice']}};
+                    
                 }
                 
                
