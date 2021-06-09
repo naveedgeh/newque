@@ -63,6 +63,7 @@
    $(document).ready(function(){
       var price={{$largevan}};
       let final=price;
+      console.log("this price ",final);
       if($("#driver7").attr('checked',true)){
         let v=$("#driver7").data('v');
         final=price?price+{{$lselfload}}:final;
@@ -96,6 +97,7 @@
       // }
       $("#driver7").click(function(){ 
         let v=$(this).data('v');
+        
            final=price?price+{{$lselfload}}:final;
            $("#price3").html(`£ ${final}`);
            $("#bprice3").val(final);

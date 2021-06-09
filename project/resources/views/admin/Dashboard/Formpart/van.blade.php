@@ -4,7 +4,7 @@
     <option value="MediumVan">Medium Van</option> --}}
     <option value="LargeVan">Large Van</option>
     <option value="XLVanLuton">XL Van - Luton</option>
-    <option value="75lorryVans">Two XL - Luton Vans</option>
+    <option value="75lorryVans">7.5 lorry Vans</option>
     <option value="ThreeXLLutonVans">Three XL - Luton Vans</option>
    
 </select>

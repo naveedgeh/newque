@@ -24,7 +24,7 @@ function initMap() {
           latlng.lng=longitude;
           flightPlanCoordinates.push(latlng);
           var options = {
-            zoom: 6,
+            zoom: 9,
             center: {
                 lat: flightPlanCoordinates[index].lat,
                 lng: flightPlanCoordinates[index].lng
