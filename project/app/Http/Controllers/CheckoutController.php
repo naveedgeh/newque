@@ -17,16 +17,36 @@ class CheckoutController extends Controller
     {
         $this->booking=new Booking();
     }
+    public function Checkoutt(){
+        $value = session('key');
+        //dd($value['vanname']);
+        $priceaddtable=Priceadd::where('vanname','=',str_replace(' ','',$value['vanname']))->get();
+        $addtionalprice=AdditionalPrice::get()->first();
+      
+        return view('frontend.checkouts',['hiddenfielsdata'=>$value,'valpricetable'=>$priceaddtable,"additionalprice"=>$addtionalprice]);
+
+    }
     public function Checkout(Request $request){
         // dd($request->all());
             //dd(str_replace(' ','',$request->vanname));
-        $hiddenfields=$request->all();
+            $hiddenfields=$request->all();
+        if(!empty($hiddenfields)){
+            $request->session()->put('key',$hiddenfields);
+            $value = $request->session()->get('key');
+           // $hiddenfields=[];
+        }
+        else{
+            $value = $request->session()->get('key');
+        }
+           
+       
+        //dd($hiddenfields);
         $priceaddtable=Priceadd::where('vanname','=',str_replace(' ','',$request->vanname))->get();
         $addtionalprice=AdditionalPrice::get()->first();
       //  dd($addtionalprice);
         //dd($priceaddtable);
        // dd($hiddenfields);
-        return view('frontend.checkouts',['hiddenfielsdata'=>$hiddenfields,'valpricetable'=>$priceaddtable,"additionalprice"=>$addtionalprice]);
+        return view('frontend.checkouts',['hiddenfielsdata'=>$value,'valpricetable'=>$priceaddtable,"additionalprice"=>$addtionalprice]);
     }
    public function Success(){
        return view('frontend.success');

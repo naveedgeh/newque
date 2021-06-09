@@ -175,7 +175,6 @@
          
         window.onpopstate = function() {window.location.replace("http://mobileandtechnology.com/queremovalss/");}; history.pushState({}, '');
            
-
       $("#_filedaddbutton").click(function(){
                 let field=$("#_field").val();
                 if(field!=""){
@@ -211,8 +210,6 @@
            let ddd='';
            var check=0;
           var check_2=1;
-
-
            var extrahelps=$("#extrahelp59").val();
         //   var extrahelpes={{$hiddenfielsdata["extrahelp"] ?? ''}};
           var pri={{$hiddenfielsdata["price"]?? 0}};
@@ -270,7 +267,6 @@
                        
                         m=0;
                 }
-
                 let time=`${hour}h${Number(m)}`;
                 if(extrahelps=="2 Men Team. I don’t need to lift a finger"){
                     price-={{$valpricetable[0]['twomanhalfhourprice']}};
@@ -292,7 +288,6 @@
                 $('#time').html(time);
                 
                 bookedtime=`${h}h${m==0 && hour==2 ? m=30:m}`;
-
                 $('#totalbookedtime').html(bookedtime);
               
             });
@@ -308,7 +303,6 @@
               }
                     
              
-
              });
             $("#floorincreement").on('click',function(){
                
@@ -320,7 +314,6 @@
                     UIUpdate();
                 }         
                
-
             });
             $("#floordecreement1").on('click',function(){
                
@@ -361,7 +354,6 @@
                 price=pri;
                  UIUpdate();
               }
-
         }); 
               $("#withlift1").on("change",function(){
                 if($("#withlift1").is(":checked")){
@@ -379,7 +371,6 @@
                 price=pri;
                  UIUpdate();
               }
-
         }); 
           $("#fullpack").on('change',function(){
                
@@ -438,9 +429,7 @@
                 
               
             });
-
         function UIUpdate(){
-
               $("#bprice55").val(Number(price));
               $("#pikuppart").val(floor1==0? '0 (ground floor)':floor1 +" "+"(Floor)");
               $("#dropoffpart").val(floor==0? '0 (ground floor)':floor +" "+"(Floor)");

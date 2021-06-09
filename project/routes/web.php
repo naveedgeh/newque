@@ -38,7 +38,7 @@ Route::get('/booking',[MapIntigrationController::class,"Book"]);
 Route::post('/book',[MapIntigrationController::class,'Booking'])->name('map');
 Route::get('/choose-van-size',[ChooseVanController::class,'ChooseVan']);
 Route::post('/choose-van-size',[ChooseVanController::class,'ChooseVan']);
-Route::get('/checkout',[CheckoutController::class,'Checkout']);
+Route::get('/checkout',[CheckoutController::class,'Checkoutt']);
 Route::post('/checkout',[CheckoutController::class,'Checkout']);
 Route::get('/confrom ',[CheckoutController::class,'ConfirmStor']);
 Route::get('/success ',[CheckoutController::class,'Success']);
