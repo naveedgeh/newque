@@ -4,7 +4,7 @@
 @endsection
 
 @section('mainbody')
-{{dd($valpricetable)}}
+
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -137,7 +137,7 @@
                 <input type="hidden" id="vanname" name="vanname" value="{{$hiddenfielsdata["vanname"] ?? ''}}">
                 
                 @if($hiddenfielsdata["additionalprice"]!=null){
-                    {{dd($hiddenfielsdata)}}
+                   
                   <input type="hidden" id="addiprice" name="addiprice" value="{{$hiddenfielsdata["additionalprice"] }}"/>
                 }
                 @endif
