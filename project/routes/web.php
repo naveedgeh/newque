@@ -55,10 +55,11 @@ Route::middleware(['naveed_group'])->group(function(){
     Route::get('/admin/addpriceaddfull',[DashboardController::class,'AddPriceaddFull'])->name('addpriceaddfull');
     Route::get('/admin/viewdetails',[ViewDetails::class,'Index'])->name('ViewDetails');
     Route::post('/admin/AddPriceadditional',[DashboardController::class,'AddPriceadditional'])->name('newaddpriceadd');
-    Route::post('/admin/AddPriceadditionalfull',[DashboardController::class,'AddPriceadditional'])->name('newaddpriceaddfull');
+    Route::post('/admin/AddPriceadditionalfull',[DashboardController::class,'AddPriceadditionalfull'])->name('newaddpriceaddfull');
     Route::post('/admin/priceadd',[DashboardController::class,'AddPrice'])->name('AddPrice');
     Route::get('/admin/delprice/{id}',[DashboardController::class,'delPrice'])->name('delPrice');
     Route::get('/admin/deladdotionalprice/{id}',[DashboardController::class,'deladdotionalprice']);
+    Route::get('/admin/deladdotionalpricefull/{id}',[DashboardController::class,'deladdotionalpricefull']);
     Route::get('/admin/Editprice/{id}',[ViewDetails::class,'EditPrice'])->name('EditPrice');
     Route::post('/admin/Updateprice',[ViewDetails::class,'UpdatePrice'])->name('UpdatePrice');
 });

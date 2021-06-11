@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Priceadd;
 use App\Models\AdditionalPrice;
+use App\Models\fullpack;
+use Fullpack as GlobalFullpack;
 
 class DashboardController extends Controller
 {
     private $priceadd;
     private $additional;
+    private $fullpack;
     public function __construct()
     {
         $this->priceadd=new Priceadd();
         $this->additional=new AdditionalPrice();
+        $this->fullpack=new fullpack();
     }
     public function Dashboard(){
 
@@ -47,6 +51,7 @@ class DashboardController extends Controller
                 $this->priceadd->threemenprice=$request->input('threemanprice');
                 $this->priceadd->twomanhalfhourprice=$request->input('twomanhalfhourprice');
                 $this->priceadd->threemanhalfhourprice=$request->input('threemanhalfhourprice');
+                $this->priceadd->driverhelphalfhourprice=$request->input('selfhalfhourprice');
                 $this->priceadd->driverhelphalfhourprice=$request->input('driverhelphalfhourprice');
                 $this->priceadd->floorpricewithoutleft=$request->input('floorpricewithoutleft');
                 $this->priceadd->floorpricewithleft=$request->input('floorpricewithleft');
@@ -64,6 +69,7 @@ class DashboardController extends Controller
                 $this->priceadd->threemenprice=$request->input('threemanprice');
                 $this->priceadd->twomanhalfhourprice=$request->input('twomanhalfhourprice');
                 $this->priceadd->threemanhalfhourprice=$request->input('threemanhalfhourprice');
+                $this->priceadd->driverhelphalfhourprice=$request->input('selfhalfhourprice');
                 $this->priceadd->driverhelphalfhourprice=$request->input('driverhelphalfhourprice');
                 $this->priceadd->floorpricewithoutleft=$request->input('floorpricewithoutleft');
                 $this->priceadd->floorpricewithleft=$request->input('floorpricewithleft');
@@ -86,10 +92,10 @@ class DashboardController extends Controller
         return view('admin.Dashboard.additionalpriceadd',["additionalprice"=>$price]);
     }
     public function AddPriceaddFull(){
-        $price=$this->additional::get();
+        $price=$this->fullpack::get();
         
-        // dd($price);
-        return view('admin.Dashboard.addpriceaddfull',["additionalprice"=>$price]);
+      ///  dd($price);
+        return view('admin.Dashboard.addpriceaddfull',["additionalpricefull"=>$price]);
     }
     public function AddPriceadditional(Request $request){
        
@@ -124,18 +130,23 @@ class DashboardController extends Controller
             return redirect()->back()->with("msg","fill all fields first");
         }
         $token="_qwckdieclo";
-        $tokenverify=AdditionalPrice::where(['token'=>$token])->first();
+        $tokenverify=Fullpack::where(['token'=>$token])->first();
     //    dd($tokenverify);
         if($tokenverify==null){
-            $this->additional->additionalprice=$request->input('fullpack');
-            $this->additional->token=$token;
-            $this->additional->save();
+            $this->fullpack->fullpak=$request->input('fullpack');
+            $this->fullpack->token=$token;
+            $this->fullpack->save();
             return redirect()->back()->with('msg',"Price Successfuly Added");
         }
         else{
             return redirect()->back()->with("msg","This record already existing If you want to change please delete first");
         }
         return view('admin.Dashboard.additionalpriceadd');
+    }
+    public function deladdotionalpricefull($id){
+        $user = $this->fullpack::find($id);
+        $user->delete();
+        return redirect()->back()->with('msg',"Delete Record Successfuly");
     }
     public function deladdotionalprice($id){
         $user = $this->additional::find($id);

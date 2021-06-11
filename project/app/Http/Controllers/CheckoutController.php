@@ -10,6 +10,7 @@ use \App\Mail\ClientMail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Priceadd;
 use App\Models\AdditionalPrice;
+use App\Models\fullpack;
 class CheckoutController extends Controller
 {
     private $booking;
@@ -22,8 +23,9 @@ class CheckoutController extends Controller
         //dd($value['vanname']);
         $priceaddtable=Priceadd::where('vanname','=',str_replace(' ','',$value['vanname']))->get();
         $addtionalprice=AdditionalPrice::get()->first();
-      
-        return view('frontend.checkouts',['hiddenfielsdata'=>$value,'valpricetable'=>$priceaddtable,"additionalprice"=>$addtionalprice]);
+        $fullpackprice=fullpack::get()->first();
+        
+        return view('frontend.checkouts',['hiddenfielsdata'=>$value,'valpricetable'=>$priceaddtable,"additionalprice"=>$addtionalprice,"fullpackprice"=>$fullpackprice]);
 
     }
     public function Checkout(Request $request){

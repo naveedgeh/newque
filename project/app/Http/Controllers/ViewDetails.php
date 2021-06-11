@@ -38,6 +38,7 @@ class ViewDetails extends Controller
                             "threemenprice"=>$request->input('threemanprice'),
                             "twomanhalfhourprice"=>$request->input('twomanhalfhourprice'),
                             "threemanhalfhourprice"=>$request->input('threemanhalfhourprice'),
+                            "selfhalfhourprice"=>$request->input('selfhalfhourprice'),
                             "driverhelphalfhourprice"=>$request->input('driverhelphalfhourprice'),
                             "floorpricewithoutleft"=>$request->input('floorpricewithoutleft'),
                             "floorpricewithleft"=>$request->input('floorpricewithleft'),

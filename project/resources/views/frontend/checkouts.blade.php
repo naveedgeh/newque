@@ -211,12 +211,13 @@
            let ddd='';
            var check=0;
           var check_2=1;
+          var price=0;
            var extrahelps=$("#extrahelp59").val();
         //   var extrahelpes={{$hiddenfielsdata["extrahelp"] ?? ''}};
-          var pri={{$hiddenfielsdata["price"]?? 0}};
+          var pri=Number("{{$hiddenfielsdata['price']?? 0}}");
            let on=$("#addiprice").val();
            if(on!=null){
-                price=pri+Number({{$additionalprice->additionalprice ?? 0}});
+                price=pri+Number("{{$additionalprice->additionalprice ?? 0}}").toFixed(15);;
                 
            }
            else{
@@ -224,7 +225,7 @@
            }
          
             $("._zu073b").on('click',function(){
-               
+                 $('._q2n5mt3').removeAttr('disabled');
                 m+=30; 
                 
                 if(m==60){
@@ -235,23 +236,27 @@
                 // let mm=add();
                 let time=`${hour}h${Number(m)}`;
                 if(extrahelps=="2 Men Team. I don’t need to lift a finger"){
-                    price+={{$valpricetable[0]['twomanhalfhourprice']}};
+                    price+=Number("{{$valpricetable[0]['twomanhalfhourprice']}}");
                 }
                 if(extrahelps=="3 Men Team. I am the boss, bring me the red carpet"){
-                    price+={{$valpricetable[0]['threemanhalfhourprice']}};
+                    price+=Number("{{$valpricetable[0]['threemanhalfhourprice']}}");
+                }
+               
+               if(extrahelps=='No I will do it myself. Selfload'){
+                    price+=Number("{{$valpricetable[0]['selfhalfhourprice']}}");
+                    
                 }
                 if(extrahelps=='Driver help. I will help the driver with heavy item(s)'){
-                    price+={{$valpricetable[0]['driverhelphalfhourprice']}};
+                    price+=Number("{{$valpricetable[0]['driverhelphalfhourprice']}}");
                     
                 }
                 
                
                 UIUpdate();
                 $('#time').html(time);
-                bookedtime=`${h}h${m}`;
-                $('#totalbookedtime').html(bookedtime);
+              
                
-                $('._q2n5mt3').removeAttr('disabled');
+              
             
             });
             $("._q2n5mt3").on('click',function(e){
@@ -270,16 +275,22 @@
                 }
                 let time=`${hour}h${Number(m)}`;
                 if(extrahelps=="2 Men Team. I don’t need to lift a finger"){
-                    price-={{$valpricetable[0]['twomanhalfhourprice']}};
+                    price-=Number("{{$valpricetable[0]['twomanhalfhourprice']}}").toFixed(2);;
                 }
                 if(extrahelps=="3 Men Team. I am the boss, bring me the red carpet"){
-                    price-={{$valpricetable[0]['threemanhalfhourprice']}};
+                    price-=Number("{{$valpricetable[0]['threemanhalfhourprice']}}").toFixed(2);;
+                }
+                 if(extrahelps==='No I will do it myself. Selfload'){
+                   let p="{{$valpricetable[0]['selfhalfhourprice']}}";
+                   let p_1=Number(p);
+                   console.log("checked value",typeof p_1);
+                   price-=p_1.toFixed(0);
                 }
                 if(extrahelps=='Driver help. I will help the driver with heavy item(s)'){
-                    price-={{$valpricetable[0]['driverhelphalfhourprice']}};
+                    price-=Number("{{$valpricetable[0]['driverhelphalfhourprice']}}").toFixed(2);;
                 }
                 
-                if(hour==2 && m==0){
+              if(hour==2 && m==0){
                       
                     $(this).attr('disabled','disabled');
                     
@@ -288,8 +299,8 @@
                 UIUpdate();
                 $('#time').html(time);
                 
-                bookedtime=`${h}h${m==0 && hour==2 ? m=30:m}`;
-                $('#totalbookedtime').html(bookedtime);
+                //bookedtime=`${h}h${m==0 && hour==2 ? m=30:m}`;
+                //$('#totalbookedtime').html(bookedtime);
               
             });
             $("#floorincreement1").on('click',function(){
@@ -376,12 +387,13 @@
           $("#fullpack").on('change',function(){
                
                if($("#fullpack").is(":checked")){ 
-                   let fullprice=hour*2;
+                 //  alert("{{$fullpackprice->fullpak}}");
+                   let fullprice=hour*Number("{{$fullpackprice->fullpak}}");
                    price+=fullprice;
                    UIUpdate();
                }
                else{
-                let fullprice=hour*2;
+                let fullprice=hour*Number("{{$fullpackprice->fullpak}}");
                    price-=fullprice;
                    UIUpdate();
                }
@@ -411,7 +423,7 @@
                    
                     if(check==0){
                        
-                        price+={{$valpricetable[0]['speiciealtime']}};
+                        price+=Number("{{$valpricetable[0]['speiciealtime']}}");
                         UIUpdate();
                         check=1;
                         check_2=0;  
@@ -420,7 +432,7 @@
                 }else{
                     check=0;
                     if(check_2==0){
-                    price-={{$valpricetable[0]['speiciealtime']}};
+                    price-=Number("{{$valpricetable[0]['speiciealtime']}}");
                     UIUpdate();
                     check_2=1;
                     }
@@ -431,12 +443,12 @@
               
             });
         function UIUpdate(){
-              $("#bprice55").val(Number(price));
+              $("#bprice55").val(Number(price).toFixed(2));
               $("#pikuppart").val(floor1==0? '0 (ground floor)':floor1 +" "+"(Floor)");
               $("#dropoffpart").val(floor==0? '0 (ground floor)':floor +" "+"(Floor)");
-              $(".stripe-button").attr('data-amount',price);
-              $('._1ppcnt4').html('£ '+Number(price));
-              $('#box_price').html('£ '+Number(price));
+              $(".stripe-button").attr('data-amount',price.toFixed(2));
+              $('._1ppcnt4').html('£ '+Number(price).toFixed(2));
+              $('#box_price').html('£ '+Number(price).toFixed(2));
         }
             });
           

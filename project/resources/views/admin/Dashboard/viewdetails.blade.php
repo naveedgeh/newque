@@ -31,6 +31,10 @@
           <strong>Three Men Price</strong>
           <p>£ {{$price->threemenprice}}</p>
         </div>
+         <div class="_23naveedpricetable">
+          <strong>Self load Half Hour Price</strong>
+          <p>£ {{$price->selfhalfhourprice}}</p>
+        </div>
         <div class="_23naveedpricetable">
           <strong>Driver Help Half Hour Price</strong>
           <p>£ {{$price->driverhelphalfhourprice}}</p>
@@ -121,8 +125,12 @@
                         <label for="exampleInputPassword1" class="form-label">3 MEN TEAM Price</label>
                         <input type="text" name="threemanprice" class="form-control" placeholder="3 MEN TEAM Price" id="threemanprice">
                       </div>
+                       <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Self load half hour Price</label>
+                        <input type="text" name="selfhalfhourprice" class="form-control" placeholder="Driver Help helf hour Price" id="selfhalfhourprice">
+                      </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Driver Help helf hour Price</label>
+                        <label for="exampleInputPassword1" class="form-label">Driver half hour Price</label>
                         <input type="text" name="driverhelphalfhourprice" class="form-control" placeholder="Driver Help helf hour Price" id="driverhelphalfhourprice">
                       </div>
                       <div class="mb-3">
@@ -181,6 +189,7 @@
         $("#driverhelpprice").val(responce["driverhelp"]);
         $("#twomanprice").val(responce["twomenprice"]);
         $("#threemanprice").val(responce["threemenprice"]);
+        $("#selfhalfhourprice").val(responce["selfhalfhourprice"]);
         $("#driverhelphalfhourprice").val(responce["driverhelphalfhourprice"]);
         $("#twomanhalfhourprice").val(responce["twomanhalfhourprice"]);
         $("#threemanhalfhourprice").val(responce["threemanhalfhourprice"]);

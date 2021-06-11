@@ -31,6 +31,10 @@
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label"></label>
+                <input type="text" name="selfhalfhourprice" class="form-control" placeholder="Self Load helf hour price" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"></label>
                 <input type="text" name="driverhelphalfhourprice" class="form-control" placeholder="Driver Help helf hour Price" id="exampleInputPassword1">
               </div>
               <div class="mb-3">
