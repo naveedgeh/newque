@@ -236,18 +236,18 @@
                 // let mm=add();
                 let time=`${hour}h${Number(m)}`;
                 if(extrahelps=="2 Men Team. I don’t need to lift a finger"){
-                    price+=Number("{{$valpricetable[0]['twomanhalfhourprice']}}");
+                    price+=Number({{$valpricetable[0]['twomanhalfhourprice']}});
                 }
                 if(extrahelps=="3 Men Team. I am the boss, bring me the red carpet"){
                     price+=Number("{{$valpricetable[0]['threemanhalfhourprice']}}");
                 }
                
                if(extrahelps=='No I will do it myself. Selfload'){
-                    price+=Number("{{$valpricetable[0]['selfhalfhourprice']}}");
+                    price+=Number({{$valpricetable[0]['selfhalfhourprice']}});
                     
                 }
                 if(extrahelps=='Driver help. I will help the driver with heavy item(s)'){
-                    price+=Number("{{$valpricetable[0]['driverhelphalfhourprice']}}");
+                    price+=Number({{$valpricetable[0]['driverhelphalfhourprice']}});
                     
                 }
                 
