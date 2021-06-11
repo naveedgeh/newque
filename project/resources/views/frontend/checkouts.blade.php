@@ -217,7 +217,7 @@
           var pri=Number("{{$hiddenfielsdata['price']?? 0}}");
            let on=$("#addiprice").val();
            if(on!=null){
-                price=pri+Number("{{$additionalprice->additionalprice ?? 0}}").toFixed(15);;
+                price=pri+Number("{{$additionalprice->additionalprice ?? 0}}").toFixed(2);;
                 
            }
            else{
@@ -387,14 +387,14 @@
           $("#fullpack").on('change',function(){
                
                if($("#fullpack").is(":checked")){ 
-                 //  alert("{{$fullpackprice->fullpak}}");
-                   let fullprice=hour*Number("{{$fullpackprice->fullpak}}");
+                 
+                  let fullprice=hour*Number("{{$fullpackprice_12->fullpak}}");
                    price+=fullprice;
                    UIUpdate();
                }
                else{
-                let fullprice=hour*Number("{{$fullpackprice->fullpak}}");
-                   price-=fullprice;
+                let fullprice=hour*Number("{{$fullpackprice_12->fullpak}}");
+                  price-=fullprice;
                    UIUpdate();
                }
               

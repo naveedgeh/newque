@@ -23,9 +23,10 @@ class CheckoutController extends Controller
         //dd($value['vanname']);
         $priceaddtable=Priceadd::where('vanname','=',str_replace(' ','',$value['vanname']))->get();
         $addtionalprice=AdditionalPrice::get()->first();
-        $fullpackprice=fullpack::get()->first();
-        
-        return view('frontend.checkouts',['hiddenfielsdata'=>$value,'valpricetable'=>$priceaddtable,"additionalprice"=>$addtionalprice,"fullpackprice"=>$fullpackprice]);
+       $fullpackprice=fullpack::get()->first();
+       //=fullpack::get()->first();
+        //dd($fullpackprice);
+        return view('frontend.checkouts',['hiddenfielsdata'=>$value,'valpricetable'=>$priceaddtable,"additionalprice"=>$addtionalprice,"fullpackprice_12"=>$fullpackprice]);
 
     }
     public function Checkout(Request $request){
